@@ -33,7 +33,7 @@ public class Recoleccion1 : MonoBehaviour
             Debug.Log(vectorValores[numvalor]);
             Invoke("mostrarValor", 2f);
             vectorValores.Remove(vectorValores[numvalor]);
-            if (inventario.Cantidad == 1 )
+            if (inventario.Cantidad == 3 )
             {
                 Invoke("terminarPartida", 2f);
                
