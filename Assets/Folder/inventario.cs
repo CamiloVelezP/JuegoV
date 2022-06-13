@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class inventario : MonoBehaviour
 {
-  public int Cantidad = 0;
+    public int Cantidad = 0;
+    public bool recogioMaletin = false;
+    public bool entregoMaletin = false;
 }

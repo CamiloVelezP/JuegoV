@@ -13,11 +13,12 @@ public class Recoleccion1 : MonoBehaviour
     public GameObject Jugador;
     public GameObject camara;
     public GameObject objetoTexto;
+    public GameObject NPCMaletin;
     public List<string> vectorValores;
     int numvalor;
     void Start()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,14 +34,38 @@ public class Recoleccion1 : MonoBehaviour
             Debug.Log(vectorValores[numvalor]);
             Invoke("mostrarValor", 2f);
             vectorValores.Remove(vectorValores[numvalor]);
-            if (inventario.Cantidad == 3 )
+            if (inventario.Cantidad == 1 && inventario.entregoMaletin == true)
             {
                 Invoke("terminarPartida", 2f);
-               
+
             }
         }
+        if (other.tag == "Maletin")
+        {
+            inventario.recogioMaletin = true;
+            Destroy(other.gameObject);
+            textoValor.text = "Este maletín se le debió perder a alguien, puedo buscar por las casas....o no";
+            objetoTexto.SetActive(true);
+            Invoke("mostrarValor", 4f);
+            NPCMaletin.SetActive(true);
 
-       
+        }
+        if (other.tag == "NPCMaletin" && inventario.recogioMaletin == true)
+        {
+            inventario.entregoMaletin = true;
+            inventario.recogioMaletin = false;
+            textoValor.text = "Gracias por devolver mi maletín, ahi tengo mi trabajo de grado";
+            objetoTexto.SetActive(true);
+            Invoke("mostrarValor", 4f);
+            if (inventario.Cantidad == 1 && inventario.entregoMaletin == true)
+            {
+                Invoke("terminarPartida", 5f);
+
+            }
+
+        }
+
+
     }
     private void mostrarValor()
     {
