@@ -26,15 +26,9 @@ public class Recoleccion1 : MonoBehaviour
         if (other.tag == "Valor")
         {
             inventario.Cantidad = inventario.Cantidad + 1;// aumneta la cantidad 
-            cantidad.text = "Cantidad = " + inventario.Cantidad;
+            cantidad.text = "Valores = " + inventario.Cantidad;
             Destroy(other.gameObject);
-            numvalor = Random.Range(0, vectorValores.Count);
-            objetoTexto.SetActive(true);
-            textoValor.text = "Has obtenido el valor: " + vectorValores[numvalor];
-            Debug.Log(vectorValores[numvalor]);
-            Invoke("mostrarValor", 2f);
-            vectorValores.Remove(vectorValores[numvalor]);
-            if (inventario.Cantidad == 1 && inventario.entregoMaletin == true)
+            if (inventario.Cantidad >= 5 && inventario.entregoMaletin == true)
             {
                 Invoke("terminarPartida", 2f);
 
@@ -44,7 +38,7 @@ public class Recoleccion1 : MonoBehaviour
         {
             inventario.recogioMaletin = true;
             Destroy(other.gameObject);
-            textoValor.text = "Este maletín se le debió perder a alguien, puedo buscar por las casas....o no";
+            textoValor.text = "Este maletín se le debió perder a alguien, puedo buscar por las casas.";
             objetoTexto.SetActive(true);
             Invoke("mostrarValor", 4f);
             NPCMaletin.SetActive(true);
@@ -56,7 +50,7 @@ public class Recoleccion1 : MonoBehaviour
             inventario.recogioMaletin = false;
             textoValor.text = "Gracias por devolver mi maletín, ahi tengo mi trabajo de grado";
             objetoTexto.SetActive(true);
-            Invoke("mostrarValor", 4f);
+            Invoke("mostrarValor", 10f);
             if (inventario.Cantidad == 1 && inventario.entregoMaletin == true)
             {
                 Invoke("terminarPartida", 5f);

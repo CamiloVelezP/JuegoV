@@ -3470,7 +3470,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Recoge los 5 tesoros para obtener la Libertad
+  m_Text: Recoge los 5 tesoros y realiza una buena obra para obtener la Libertad
 --- !u!222 &1251252687
 CanvasRenderer:
   m_ObjectHideFlags: 0
