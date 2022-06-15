@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Vida : MonoBehaviour
 {
-    
+    public Transform puntoReaparicion;
     void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Enemigo")){
-          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            transform.position = puntoReaparicion.position;
 
         }
     }
