@@ -14,6 +14,7 @@ public class Recoleccion1 : MonoBehaviour
     public GameObject camara;
     public GameObject objetoTexto;
     public GameObject NPCMaletin;
+    public GameObject gemaHonesta;
     public List<string> vectorValores;
     int numvalor;
     void Start()
@@ -28,7 +29,7 @@ public class Recoleccion1 : MonoBehaviour
             inventario.Cantidad = inventario.Cantidad + 1;// aumneta la cantidad 
             cantidad.text = "Valores = " + inventario.Cantidad;
             Destroy(other.gameObject);
-            if (inventario.Cantidad >= 5 && inventario.entregoMaletin == true)
+            if (inventario.Cantidad >= 6 && inventario.entregoMaletin == true)
             {
                 Invoke("terminarPartida", 2f);
 
@@ -50,8 +51,9 @@ public class Recoleccion1 : MonoBehaviour
             inventario.recogioMaletin = false;
             textoValor.text = "Gracias por devolver mi maletín, ahi tengo mi trabajo de grado";
             objetoTexto.SetActive(true);
+            gemaHonesta.SetActive(true);
             Invoke("mostrarValor", 3f);
-            if (inventario.Cantidad >= 5  && inventario.entregoMaletin == true)
+            if (inventario.Cantidad >= 6  && inventario.entregoMaletin == true)
             {
                 Invoke("terminarPartida", 4f);
 
