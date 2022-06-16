@@ -51,7 +51,7 @@ public class Recoleccion1 : MonoBehaviour
             textoValor.text = "Gracias por devolver mi maletín, ahi tengo mi trabajo de grado";
             objetoTexto.SetActive(true);
             Invoke("mostrarValor", 10f);
-            if (inventario.Cantidad == 1 && inventario.entregoMaletin == true)
+            if (inventario.Cantidad >= 5  && inventario.entregoMaletin == true)
             {
                 Invoke("terminarPartida", 5f);
 
