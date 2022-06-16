@@ -15,8 +15,6 @@ public class Recoleccion1 : MonoBehaviour
     public GameObject objetoTexto;
     public GameObject NPCMaletin;
     public GameObject gemaHonesta;
-    public List<string> vectorValores;
-    int numvalor;
     void Start()
     {
 
