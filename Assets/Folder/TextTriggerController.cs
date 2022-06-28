@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,8 +15,23 @@ public class TextTriggerController : MonoBehaviour
     [TextArea]
     [SerializeField] private string textString;
 
+    private AudioSource clip;
+    private bool isClip = true;
+
     [Header("Controller")]
     [SerializeField] private textController textController;
+
+    private void Start()
+    {
+        try
+        {
+            clip = gameObject.GetComponent<AudioSource>();
+        }
+        catch(Exception e)
+        {
+            isClip = false;
+        }        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,6 +40,11 @@ public class TextTriggerController : MonoBehaviour
             if (!isCooldown)
             {
                 textController.ShowText(textString, activeTime);
+                if (isClip)
+                {
+                    clip.Play();
+                }
+                    
                 StartCoroutine("Cooldown");
             }
         }

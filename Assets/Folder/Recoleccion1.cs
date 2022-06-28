@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Recoleccion1 : MonoBehaviour
 {
+    public int cantidadToWin = 6;
+    public float timeToWin = 8f;
     public inventario inventario; //llamar al script inventario
     // Start is called before the first frame update
     public Text cantidad;
@@ -15,6 +17,7 @@ public class Recoleccion1 : MonoBehaviour
     public GameObject objetoTexto;
     public GameObject NPCMaletin;
     public GameObject gemaHonesta;
+    public GameObject triggerHonesto;
     void Start()
     {
 
@@ -27,9 +30,9 @@ public class Recoleccion1 : MonoBehaviour
             inventario.Cantidad = inventario.Cantidad + 1;// aumneta la cantidad 
             cantidad.text = "Valores = " + inventario.Cantidad;
             Destroy(other.gameObject);
-            if (inventario.Cantidad >= 6 && inventario.entregoMaletin == true)
+            if (inventario.Cantidad >= cantidadToWin)
             {
-                Invoke("terminarPartida", 2f);
+                Invoke("terminarPartida", timeToWin);
 
             }
         }
@@ -50,10 +53,11 @@ public class Recoleccion1 : MonoBehaviour
             textoValor.text = "Gracias por devolver mi maletín, ahi tengo mi trabajo de grado";
             objetoTexto.SetActive(true);
             gemaHonesta.SetActive(true);
+            triggerHonesto.SetActive(true);
             Invoke("mostrarValor", 3f);
-            if (inventario.Cantidad >= 6  && inventario.entregoMaletin == true)
+            if (inventario.Cantidad >= cantidadToWin)
             {
-                Invoke("terminarPartida", 4f);
+                Invoke("terminarPartida", timeToWin);
 
             }
 
